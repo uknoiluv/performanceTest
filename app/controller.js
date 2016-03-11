@@ -4,13 +4,25 @@
     .controller('testController', function(myService){
       // do stuff with scope
       var testScope = this;
-      testScope.data = [];
-      testScope.createNestedArray = function() {
-        for(var i = 0; i < 10; i++) {
-          testScope.data.push([]);
-          for(var j = 0; j < 10; j++) {
-            testScope.data[i].push(10 * i + j)
+      testScope.dataForAngular = [];
+      testScope.dataForReact = [];
+      testScope.createNestedArray = function(name) {
+        if(name === 'Angular' || name === undefined) {
+          testScope.dataForAngular = [];
+          for(var i = 0; i < 10; i++) {
+            testScope.dataForAngular.push([]);
+            for(var j = 0; j < 10; j++) {
+              testScope.dataForAngular[i].push(Math.random() * 100)
+            }
           }
+        } else if(name === 'React') {
+          testScope.dataForReact = [];
+          for(var i = 0; i < 10; i++) {
+            testScope.dataForReact.push([]);
+            for(var j = 0; j < 10; j++) {
+              testScope.dataForReact[i].push(Math.random() * 100)
+            }
+          }          
         }
       };
 
