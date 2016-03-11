@@ -13,9 +13,13 @@
 
     </head>
    <body>
-      <div id="hello world" ng-controller="testController as testScope">
-        {{testScope.hello}}
-        {{testScope.array}}
+      <div id="angular-ng-repeat" ng-controller="testController as testScope">
+        <button ng-click="testScope.createNestedArray()"> click to load data or refresh </button>
+        <table>
+          <tr ng-repeat="element in testScope.data">
+            <td ng-repeat="subElement in element">{{subElement}}</td>
+          </tr>
+        </table>
       </div>
       <react-element></react-element>
    </body>
